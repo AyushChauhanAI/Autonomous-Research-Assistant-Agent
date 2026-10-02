@@ -21,7 +21,7 @@ class Planning(BaseModel):
     tasks: List[ResearchTask] = Field(min_length=7, max_length=9)
 
 
-planner = llm.with_structured_output(Planning)
+planner = llm.with_structured_output(Planning, method="json_schema")
 
 
 def planning_agent(topic: str) -> Planning:
